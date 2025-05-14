@@ -1,0 +1,19 @@
+[package]
+name = "gst-plugin-tutorial"
+version = "0.1.0"
+edition = "2021"
+description = "Rust Tutorial Plugin"
+repository = "https://github.com/VillegasMich/gstreamer-plugins-rust.git"
+
+[dependencies]
+gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
+gst-base = { package = "gstreamer-base", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
+gst-video = { package = "gstreamer-video", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
+
+[lib]
+name = "gstrstutorial"
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[build-dependencies]
+gst-plugin-version-helper = { git = "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs" }
