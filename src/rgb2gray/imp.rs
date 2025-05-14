@@ -51,7 +51,7 @@ impl ElementImpl for Rgb2Gray {
                 "RGB-GRAY Converter",
                 "Filter/Effect/Converter/Video",
                 "Converts RGB to GRAY or grayscale RGB",
-                "Sebastian Dröge <sebastian@centricular.com>",
+                "Manuel Villegas Michel (Sebastian Dröge <sebastian@centricular.com>)",
             )
         });
 
@@ -105,7 +105,7 @@ impl BaseTransformImpl for Rgb2Gray {
             let mut caps = caps.clone();
 
             for s in caps.make_mut().iter_mut() {
-                s.set("format", &gst_video::VideoFormat::Bgrx.to_str());
+                s.set("format", gst_video::VideoFormat::Bgrx.to_str());
             }
 
             caps
@@ -117,7 +117,7 @@ impl BaseTransformImpl for Rgb2Gray {
 
                 for s in caps.iter() {
                     let mut s_gray = s.to_owned();
-                    s_gray.set("format", &gst_video::VideoFormat::Gray8.to_str());
+                    s_gray.set("format", gst_video::VideoFormat::Gray8.to_str());
                     gray_caps.append_structure(s_gray);
                 }
                 gray_caps.append(caps.clone());
