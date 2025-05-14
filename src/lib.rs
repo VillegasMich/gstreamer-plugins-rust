@@ -3,7 +3,7 @@ use gst::glib;
 mod rgb2gray;
 
 fn plugin_init(plugin: &gst::Plugin) -> Result<(), glib::BoolError> {
-    // rgb2gray::register(plugin)?;
+    rgb2gray::register(plugin)?;
     Ok(())
 }
 
@@ -18,4 +18,3 @@ gst::plugin_define!(
     env!("CARGO_PKG_REPOSITORY"),                               // origin of the plugin
     env!("BUILD_REL_DATE")                                      // release date version
 );
-
