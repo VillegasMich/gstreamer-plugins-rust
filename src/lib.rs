@@ -1,9 +1,14 @@
 use gst::glib;
 
+mod dynamic_agg;
 mod rgb2gray;
+mod simple_agg;
 
 fn plugin_init(plugin: &gst::Plugin) -> Result<(), glib::BoolError> {
     rgb2gray::register(plugin)?;
+    dynamic_agg::register(plugin)?;
+    simple_agg::register(plugin)?;
+
     Ok(())
 }
 
